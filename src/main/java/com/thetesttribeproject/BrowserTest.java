@@ -5,7 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BrowserTest {
+
+
+
     public static void main(String[] args) throws InterruptedException {
+
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--start-maximized");
@@ -17,4 +22,6 @@ public class BrowserTest {
         driver.quit();
         System.out.println("test passed");
     }
+
+
 }
