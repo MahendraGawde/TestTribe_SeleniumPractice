@@ -24,7 +24,8 @@ public class SelectDropdownDemo {
         js.executeScript("window.scrollBy(0,600)");
 
 
-        WebElement drpCountryEle = myWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@id='country']")));;Select countryDropdown = new Select(drpCountryEle);
+        WebElement drpCountryEle = myWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@id='country']")));
+        Select countryDropdown = new Select(drpCountryEle);
         List<WebElement> allOptions = countryDropdown.getOptions();
         for(WebElement element : allOptions){
             System.out.println(element.getText());
