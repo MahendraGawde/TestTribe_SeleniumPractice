@@ -18,10 +18,12 @@ public class MoneyControl {
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        js.executeScript("window.scrollTo(0, -3000);");
+
         Thread.sleep(6000);
         WebElement retirementTitle = driver.findElement(By.xpath("//div[@class = 'flinkl2']//li/a[1]"));
 
+        js.executeScript("arguments[0].scrollIntoView()",retirementTitle);
+        System.out.println("Offset of retirement webelement : " +js.executeScript("return window.pageYOffset;"));
         Thread.sleep(2000);
         retirementTitle.click();
         System.out.println(driver.getCurrentUrl());

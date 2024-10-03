@@ -27,14 +27,22 @@ public class OpenLinkInNewTab {
 
         List<String> ids = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(ids.get(1));
-        driver.findElement(By.name("FullName")).sendKeys("Rock Dwayne Johansson");
-        driver.findElement(By.name("Email")).sendKeys("rockiscooking@wwe.com");
-        driver.findElement(By.name("CompanyName")).sendKeys("World Wrestling Enterprise");
-        driver.findElement(By.name("Contact")).sendKeys("9988445577");
 
+        WebElement fullName = driver.findElement(By.name("FullName"));
+        fullName.sendKeys("Rock Dwayne Johansson");
+
+        WebElement email = driver.findElement(By.name("Email"));
+        email.sendKeys("rockiscooking@wwe.com");
+
+        WebElement companyName = driver.findElement(By.name("CompanyName"));
+        companyName.sendKeys("World Wrestling Enterprise");
+
+        WebElement contact = driver.findElement(By.name("Contact"));
+        contact.sendKeys("9988445577");
 
         WebElement countryDropDown = driver.findElement(By.name("Country"));
         WebDriverWait myWait = new WebDriverWait(driver,Duration.ofSeconds(5));
+
         WebElement noOfEmployees = myWait.until(ExpectedConditions.visibilityOfElementLocated
                         (By.xpath("//select[@id= 'Form_getForm_NoOfEmployees']")));
         Select selectEmpDropDown = new Select(noOfEmployees);
@@ -49,6 +57,7 @@ public class OpenLinkInNewTab {
 
         WebElement submitBtn = driver.findElement(By.xpath("//input[@type = 'submit']"));
         submitBtn.click();
+
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.orangehrm.com/en/pricing/confirmation");
 
         System.out.println("Test passed");
