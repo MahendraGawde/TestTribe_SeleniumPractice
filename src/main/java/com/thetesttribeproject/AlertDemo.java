@@ -23,5 +23,6 @@ public class AlertDemo {
         System.out.println(alert.getText());
         alert.accept();
         driver.quit();
+        driver.switchTo().defaultContent();
     }
 }
