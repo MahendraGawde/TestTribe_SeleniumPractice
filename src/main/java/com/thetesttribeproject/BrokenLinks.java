@@ -67,7 +67,7 @@ public class BrokenLinks {
     }
 }
 /*
-1. Capture all the links from website
+1. Capture all the links from website by tagname a
 2. Hit Url to the Server
 3. Convert href value from string to URL format
 4. Open connection to the Server
