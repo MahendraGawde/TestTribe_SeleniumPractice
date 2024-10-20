@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test suite" parallel="tests" thread-count="5">
+    <test name="ChromeTest">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="testng.annotations.ParamTest"></class>
+        </classes>
+    </test>
+    <test name="EdgeTest">
+        <parameter name="browserName" value="Edge"/>
+        <classes>
+            <class name="testng.annotations.ParamTest"/>
+        </classes>
+    </test>
+    <test name="FirefoxTest">
+        <parameter name="browserName" value="firefox"/>
+        <classes>
+            <class name="testng.annotations.ParamTest"/>
+        </classes>
+    </test>
+</suite>
