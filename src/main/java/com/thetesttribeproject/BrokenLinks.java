@@ -1,9 +1,12 @@
 package com.thetesttribeproject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -28,14 +31,18 @@ public class BrokenLinks {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://www.deadlinkcity.com/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // Capture all the links from website
-        List<WebElement> links = driver.findElements(By.tagName("a"));
-        System.out.println("Total no. of links: " +links.size());
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("a")));
+        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+
+        System.out.println("Total no. of links: " +allLinks.size());
         int noOfBrokenLinks = 0;
 
-        for(WebElement linkElement : links){
+        for(WebElement linkElement : allLinks){
             String hrefAttrbuteVal = linkElement.getAttribute("href");
             if(hrefAttrbuteVal == null || hrefAttrbuteVal.isEmpty()){
                 System.out.println("href attribute is null or empty, not possible to check ");
