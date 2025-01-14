@@ -10,6 +10,7 @@ import java.time.Duration;
 import static org.openqa.selenium.support.locators.RelativeLocator.*;
 
 public class RelativeLocatorsNew {
+
     WebDriver driver;
     @Test
     public void testRelativeLocators(){
