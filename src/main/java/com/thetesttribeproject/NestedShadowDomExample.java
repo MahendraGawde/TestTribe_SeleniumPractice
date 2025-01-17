@@ -26,7 +26,6 @@ public class NestedShadowDomExample {
                 ".shadowRoot.querySelector('shop-button > a')");
         assert shopNowMaleButton != null;
         shopNowMaleButton.click();
-
     }
 
     @AfterTest

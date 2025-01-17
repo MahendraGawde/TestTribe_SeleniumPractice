@@ -13,7 +13,7 @@ public class ShadowHostExample {
     WebDriver driver;
     @BeforeTest
     public void launchUrl(){
-        driver = new ChromeDriver(); // Selenium Manager will manage the driver
+        driver = new ChromeDriver();
 
         driver.manage().window().maximize();
         // Open url
@@ -35,7 +35,6 @@ public class ShadowHostExample {
 
         WebElement searchInput = bookInputDecorator.findElement(By.id("input"));
         searchInput.sendKeys("My new roots");
-
     }
 
     @AfterTest
